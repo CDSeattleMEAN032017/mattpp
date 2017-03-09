@@ -1,0 +1,44 @@
+
+.container {
+  text-align: center;
+  padding-top: 80px;
+}
+
+h1 {
+  font-style: italic;
+}
+
+.pretend-btn {
+  font-size: 44px;
+  font-weight: 300;
+  width: 400px;
+  margin: 100px auto;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* for assignment going to use classes instead of operating directly on the html's attrs */
+
+.default {
+  color: #222;
+  border: 1px solid #555;
+  background-color: #eee;
+}
+
+.red {
+  background-color: red;
+  color: #fff;
+  border: 1px solid darkred;
+}
+
+.blue {
+  background-color: blue;
+  color: #fff;
+  border: 1px solid darkblue;
+}
+
+.green {
+  background-color: green;
+  color: #fff;
+  border: 1px solid darkgreen;
+}
