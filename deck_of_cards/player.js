@@ -23,7 +23,7 @@ Player.prototype.discard = function(handIdx) {
   return this
 }
 
-//
+// pass in jquery elem and appends card w/ unicode
 Player.prototype.showHand = function(elem) {
   for (var i = 0; i < this.hand.length; i++) {
     elem.append(`<div class="card">&#${this.hand[i].cardImg};</div>`)
