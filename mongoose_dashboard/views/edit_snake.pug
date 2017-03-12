@@ -1,0 +1,37 @@
+doctype html
+html(lang='en')
+  head
+    title what up snakez
+    link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+  body
+    .container
+      .row
+        .col-md-12
+          a(href='/') Back
+          h1.page-header Add a new Snake
+          if errors
+            .alert.alert-danger
+              = errorMsg
+      .row
+        .col-md-8
+          .well
+            - var editUrl = `/snakes/${snake._id}`
+            form.form(method='POST' action=editUrl)
+              .form-group
+                input.form-control(type='text', placeholder='Name...' name='name' value=snake.name)
+              .form-group
+                input.form-control(type='text', placeholder='Location...' name='location' value=snake.location)
+              .form-group
+                textarea.form-control(type='text', placeholder='About this snake...' name='blurb')= snake.blurb
+              .radio
+                label
+                  input(type='radio', name='venomous' value='true')
+                  Yes is venomous
+              .radio
+                label
+                  input(type='radio', name='venomous' value='false' checked)
+                  No is not venomous
+              br
+              input.btn.btn-primary(type='submit' value='Submit')

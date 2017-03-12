@@ -1,0 +1,26 @@
+doctype html
+html(lang='en')
+  head
+    title what up snakez
+    link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+  body
+    .container
+      .row
+        .col-md-12
+          a(href='/') Home
+          h1.page-header= snake.name
+      .row
+        .col-md-4
+          img.thumbnail.responsive-img(src='http://southcoastherald.co.za/wp-content/uploads/sites/52/2015/05/Green-mamba.-Gebel-Holger-Michael..jpg')
+          - var editLink = `/snakes/edit/${snake._id}`
+          - var deleteLink = `/snakes/destroy/${snake._id}`
+          a.btn.btn-default.pull-left(href=editLink) Edit
+          form(action=deleteLink method='POST')
+            input.btn.btn-danger.pull-left(type='submit' value='Delete')
+          br
+          br
+          p= snake.location
+          p This snake knows who Steve Irwin(rip) is (all snakes do...)
+          p= snake.blurb

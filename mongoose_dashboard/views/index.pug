@@ -1,0 +1,28 @@
+doctype html
+html(lang='en')
+  head
+    title what up snakez
+    link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+  body
+    .container
+      .row
+        .col-md-12
+          a(href='/snakes/new') + New
+          h1.page-header All Snakes
+          if errors
+            .alert.alert-danger
+              = errorMsg
+      .row
+        each snake in snakes
+          - var snakeId = `/snakes/${snake._id}`
+          .col-md-6
+            .thumbnail
+              img(src='http://southcoastherald.co.za/wp-content/uploads/sites/52/2015/05/Green-mamba.-Gebel-Holger-Michael..jpg')
+              .caption
+                h3= snake.name
+                p= snake.location
+                p= snake.blurb
+                p
+                a.btn.btn-warning(href=snakeId) View more
