@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Controlling Users</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <style>
+    table.table,
+    tbody {
+      min-height: 100px;
+    }
+  </style>
+
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="main.js"></script>
+</head>
+<body>
+
+  <div class="container" ng-controller="UsersController">
+    <h1 class="page-header">Users Controller</h1>
+    <div class="row">
+      <div class="col-md-6">
+        <h3>Create a User</h3>
+        <div class="well">
+          <form class="form" ng-submit="addUser()">
+            <div class="form-group">
+              <input type="text" ng-model="newUser.fName" class="form-control" placeholder="First name...">
+            </div>
+            <div class="form-group">
+              <input type="text" ng-model="newUser.lName" class="form-control" placeholder="Last name...">
+            </div>
+            <div class="form-group">
+              <input type="text" ng-model="newUser.favLang" class="form-control" placeholder="Favorite Language...">
+            </div>
+            <input type="submit" class="btn btn-primary" value="Submit">
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8">
+        <h3>All Users</h3>
+        <input type="text" ng-model="userFilter" class="form-control" placeholder="Filter...">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>First name</th>
+              <th>Last name</th>
+              <th>Favorite Language</th>
+              <th>Date Added</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="user in allUsers | filter:userFilter track by $index">
+              <td>{{user.fName}}</td>
+              <td>{{user.lName}}</td>
+              <td>{{user.favLang}}</td>
+              <td>{{user.dateAdded}}</td>
+              <td><a ng-click="deleteUser($index)">Delete</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

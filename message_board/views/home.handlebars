@@ -1,0 +1,75 @@
+
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+  <h1 class="page-header">Dojo Message Board</h1>
+
+  <div class="row">
+    <div class="col-md-7">
+      <h4>Leave a message:</h4>
+      <div class="well">
+        <form action="/" method="POST" class="form">
+          <div class="form-group">
+            <input type="text" class="form-control" name="name" placeholder="Your name...">
+          </div>
+          <div class="form-group">
+            <textarea name="message" rows="4" class="form-control" placeholder="Write a message..."></textarea>
+          </div>
+          <input type="submit" class="btn btn-primary btn-block" value="Submit">
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="page-header">All Messages</h2>
+
+      <ul class="media-list">
+        {{#each posts}}
+          <li class="media">
+            <div class="media-left">
+              <img class="media-object" src="//placehold.it/60x60">
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading">{{posted_by}} wrote:</h4>
+              <p>{{text}}</p>
+
+              {{#each comments}}
+                <div class="media">
+                  <div class="media-left">
+                    <img class="media-object" src="//placehold.it/60x60">
+                  </div>
+                  <div class="media-body">
+                    <h4 class="media-heading">{{posted_by}} wrote:</h4>
+                    <p>{{text}}</p>
+                  </div>
+                </div>
+              {{/each}}
+
+              <div class="row">
+                <div class="col-md-6">
+                  <h4>Leave a comment:</h4>
+                  <form action="/posts/{{_id}}" method="POST" class="form">
+                    <div class="form-group">
+                      <input type="text" name="name" class="form-control" placeholder="Your name...">
+                    </div>
+                    <div class="form-group">
+                      <textarea class="form-control" name="message" placeholder="Your comment..."></textarea>
+                    </div>
+                    <input type="submit" class="btn btn-primary" value="Submit">
+                  </form>
+                </div>
+              </div>
+
+            </div>
+          </li>
+        {{/each}}
+      </ul>
+
+    </div>
+  </div>
+
+</div>
+</div>
+</div>
