@@ -1,0 +1,53 @@
+
+<div class="row">
+  <div class="col-md-12">
+    <h2>Associations</h2>
+    <form class="form" ng-submit="addAssociation()">
+      <div class="row">
+        <div class="col-md-4">
+          <select class="form-control" ng-model="newAssociation.player">
+            <option value="">Player</option>
+            <option ng-repeat="player in players" value="{{player.id}}">{{player.name}}</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <select class="form-control" ng-model="newAssociation.team">
+            <option value="">Team</option>
+            <option ng-repeat="team in teams" value="{{team.id}}">{{team.name}}</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <input type="submit" class="btn btn-primary" value="Add">
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<hr>
+
+<div class="row">
+  <div class="col-md-10">
+
+    <div ng-show="errors.length > 0" class="errors">
+      <div ng-repeat="error in errors" class="alert alert-warning">{{error}}</div>
+    </div>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Team</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="association in associations">
+          <td>{{association.player.name}}</td>
+          <td>{{association.team.name}}</td>
+          <td><a ng-click="deleteAssociation(association.id)">Remove</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

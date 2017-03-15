@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Partials and Custom Users</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/paper/bootstrap.min.css">
+
+  <script src="angular/angular.js"></script>
+  <script src="angular-route/angular-route.js"></script>
+  <script src="js/main.js"></script>
+</head>
+<body>
+  <ul class="nav nav-tabs nav-justified">
+    <li role="presentation"><a href="#!/users">Customize Users</a></li>
+    <li role="presentation"><a href="#!/list">Users List</a></li>
+  </ul>
+  <div ng-view class="container">
+    <!-- partials will load here -->
+  </div>
+</body>
+</html>
