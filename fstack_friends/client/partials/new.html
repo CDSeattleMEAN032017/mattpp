@@ -1,0 +1,34 @@
+
+<div class="row">
+  <div class="col-md-6">
+    <h2>New User</h2>
+    <div class="well">
+      <form class="form" ng-submit="addFriend()">
+        <div class="form-group">
+          <input ng-model="newFriend.fName" minlength="4" type="text" class="form-control" placeholder="First name..." required>
+        </div>
+        <div class="form-group">
+          <input ng-model="newFriend.lName" minlength="4" type="text" class="form-control" placeholder="Last name..." required>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-2">Birthday: </div>
+            <div class="col-md-10">
+              <input ng-model="newFriend.bDay" type="date" class="form-control">
+            </div>
+          </div>
+        </div>
+        <input type="submit" class="btn btn-primary" value="Submit">
+
+        <div ng-messages="newFriend.fName.$error">
+          <p ng-message="minlength">The player name is too short.</p>
+          <p ng-message="required">The player name is required.</p>
+       </div>
+        <div ng-messages="newFriend.lName.$error">
+          <p ng-message="minlength">The player name is too short.</p>
+          <p ng-message="required">The player name is required.</p>
+       </div>
+      </form>
+    </div>
+  </div>
+</div>

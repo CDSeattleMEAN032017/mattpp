@@ -1,0 +1,26 @@
+
+<div class="row">
+  <div class="col-md-8">
+    <h2>All Friends</h2>
+    <table class="table table-condensed">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Birthday</th>
+          <th>Show</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="friend in friends">
+          <td>{{friend.fName}} {{friend.lName}}</td>
+          <td>{{friend.bDay | date:'MM-dd-yyyy'}}</td>
+          <td><a href="#!/friends/{{friend._id}}">Show</a></td>
+          <td><a href="#!/friends/{{friend._id}}/edit">Edit</a></td>
+          <td><a ng-click="deleteFriend(friend._id)">Delete</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
